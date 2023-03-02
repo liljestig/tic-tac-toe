@@ -1,8 +1,20 @@
-const Square = (props) => {
+const Square = ({id, player}) => {
+  const [color, setColor] = React.useState("green");
+  const palet = ["red", "blue", "green"];
+  const getRandomColor = () => palet[Math.floor(Math.random() * 3)];
+
+  // keep track of state of the Square
   return (
-    <button> {props.id} </button>
-  )
-}
+    <button
+      onClick={(e) => {
+        setColor(getRandomColor());
+        e.target.style.background = color;
+      }}
+    >
+      <h1>{id}</h1>
+    </button>
+  );
+};
 
 const Board = () => {
   const [player, setPlayer] = React.useState(1);
