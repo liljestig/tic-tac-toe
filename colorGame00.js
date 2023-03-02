@@ -1,6 +1,6 @@
-const Square = () => {
+const Square = (props) => {
   return (
-    <button> </button>
+    <button> {props.id} </button>
   )
 }
 
@@ -8,7 +8,7 @@ const Board = () => {
   const [player, setPlayer] = React.useState(1);
   let status = `Player ${player}`;
   function renderSquare(i) {
-    return <Square></Square>;
+    return <Square id={i}></Square>;
   }
   return (
     <div className="game-board">
